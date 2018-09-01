@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfApplication2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication2"
+        mc:Ignorable="d"
+        Title="倒计时" Height="350" Width="525">
+    <Grid>
+        <DockPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center" DockPanel.Dock="Top">
+                <TextBox Name="tb_speed" Width="100">1000</TextBox>
+                <Label Width="50" Margin="0">ms/次</Label>
+            </StackPanel>
+            <TextBox Name="tb_number" FontSize="30" Width="150" TextAlignment="Center" Text="999" Margin="10" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
+            <Button Name="btn_startCountDown" Margin="3" Width="150" Height="50" FontSize="30" BorderThickness="0" Foreground="White" DockPanel.Dock="Top" Click="btn_startCountDown_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#a73737" Offset="1"/>
+                        <GradientStop Color="#7a2828"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                开始
+            </Button>
+            <Label Name="lb_endTime" FontSize="20" Content="end time:" Margin="10" HorizontalAlignment="Center" DockPanel.Dock="Bottom"/>
+            <Label Name="lb_startTime" FontSize="20" Content="start time:" Margin="10" HorizontalAlignment="Center" DockPanel.Dock="Bottom"/>
+        </DockPanel>
+    </Grid>
+</Window>
