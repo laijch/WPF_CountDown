@@ -26,6 +26,7 @@ namespace WpfApplication2
         public MainWindow()
         {
             InitializeComponent();
+            this.ResizeMode = ResizeMode.NoResize;
             ln.Num = 1000;
             tb_number.SetBinding(TextBox.TextProperty, new Binding("Num") { Source = ln });
             cs.Speed = 10;
