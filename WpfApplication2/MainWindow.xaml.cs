@@ -27,12 +27,22 @@ namespace WpfApplication2
         {
             InitializeComponent();
             this.ResizeMode = ResizeMode.NoResize;
+            this.Closing += MainWindow_Closing;
             ln.Num = 1000;
             tb_number.SetBinding(TextBox.TextProperty, new Binding("Num") { Source = ln });
             cs.Speed = 10;
             tb_speed.SetBinding(TextBox.TextProperty, new Binding("Speed") { Source = cs });
         }
 
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            if (thread_labelNum != null)
+            {
+                thread_labelNum.Abort();
+            }
+        }
+
+        Thread thread_labelNum = null;
         private LabelNum ln = new LabelNum();
         private CountSpeed cs = new CountSpeed();
 
@@ -59,12 +69,13 @@ namespace WpfApplication2
                     btn_startCountDown.IsEnabled = true;
                     tb_speed.IsReadOnly = false;
                     tb_number.IsReadOnly = false;
+                    ln.Num = 1000;
                 });
         }
 
         private void btn_startCountDown_Click(object sender, RoutedEventArgs e)
         {
-            Thread thread_labelNum = new Thread(() => updateNum());
+            thread_labelNum = new Thread(() => updateNum());
             thread_labelNum.SetApartmentState(ApartmentState.MTA);
             thread_labelNum.Start();
         }
