@@ -12,7 +12,7 @@
                 <TextBox Name="tb_speed" Width="100">1000</TextBox>
                 <Label Width="50" Margin="0">ms/次</Label>
             </StackPanel>
-            <TextBox Name="tb_number" FontSize="30" Width="150" TextAlignment="Center" Text="999" Margin="10" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
+            <TextBox Name="tb_number" FontSize="30" Width="150" TextAlignment="Center" Text="999" Margin="10" HorizontalAlignment="Center" DockPanel.Dock="Top" Style="{StaticResource OuterGlowStyle}"/>
             <Button Name="btn_startCountDown" Margin="3" Width="150" Height="50" FontSize="30" BorderThickness="0" Foreground="White" DockPanel.Dock="Top" Click="btn_startCountDown_Click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
